@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --canvas: 247 248 250;
+  --panel: 255 255 255;
+  --line: 218 223 231;
+  --ink: 18 25 38;
+  --muted: 94 105 124;
+  --accent: 61 93 255;
+  --signal: 15 174 145;
+  --font-inter: "Segoe UI Variable", "Segoe UI";
+  --font-noto: "Microsoft YaHei UI", "Noto Sans CJK SC";
+  --font-jetbrains: "Cascadia Code", "SFMono-Regular";
+}
+
+.dark {
+  --canvas: 8 12 20;
+  --panel: 14 20 31;
+  --line: 38 47 64;
+  --ink: 235 239 247;
+  --muted: 146 158 179;
+  --accent: 112 134 255;
+  --signal: 45 211 178;
+}
+
+* {
+  border-color: rgb(var(--line));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: rgb(var(--canvas));
+  color: rgb(var(--ink));
+  font-family: var(--font-inter), var(--font-noto), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgb(var(--accent) / 0.22);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.page-grid {
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.lab-label {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgb(var(--muted));
+}
+
+.answer-copy p {
+  line-height: 1.8;
+}
+
+.answer-copy code {
+  font-family: var(--font-jetbrains), monospace;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--line)) transparent;
+}
+

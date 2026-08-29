@@ -1,0 +1,1802 @@
+[
+  {
+    "question": "����߼� always_comb �г��� latch �ĸ�����ʲô��",
+    "category": "RTL",
+    "expected_key_points": [
+      "incomplete assignment",
+      "default assignment",
+      "latch inference"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "SystemVerilog ��������ֵ���������ֵӦ���ѡ��",
+    "category": "RTL",
+    "expected_key_points": [
+      "scheduling semantics",
+      "combinational vs sequential",
+      "race avoidance"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "�������ٲ��� RTL ��α������ȼ��������",
+    "category": "RTL",
+    "expected_key_points": [
+      "parameterization",
+      "priority",
+      "corner cases"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "ready/valid �ӿ����ʵ����������ˮ���䣿",
+    "category": "RTL",
+    "expected_key_points": [
+      "handshake rule",
+      "backpressure",
+      "throughput"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "��α���һ�����ۺϵ� one-hot ״̬����",
+    "category": "RTL",
+    "expected_key_points": [
+      "state encoding",
+      "default recovery",
+      "synthesis"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "RTL ���з������޷��Ż����������Щ���գ�",
+    "category": "RTL",
+    "expected_key_points": [
+      "width extension",
+      "signedness",
+      "casting"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "�ɱ�λ����λ�����������ۺ�����쳣��",
+    "category": "RTL",
+    "expected_key_points": [
+      "barrel shifter",
+      "width bound",
+      "area trade-off"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "��ģ������� package ����Ӧ������֯��",
+    "category": "RTL",
+    "expected_key_points": [
+      "package",
+      "type consistency",
+      "compile order"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "�����������Ϊ����� RTL �͹���ж��룿",
+    "category": "RTL",
+    "expected_key_points": [
+      "overflow semantics",
+      "width",
+      "assertion"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "Ϊʲô��Ӧ����ͨ RTL ��ʹ���ڲ�����ʱ�ӣ�",
+    "category": "RTL",
+    "expected_key_points": [
+      "clock enable",
+      "clock tree",
+      "timing analysis"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "synthesis tool user guide"
+    ]
+  },
+  {
+    "question": "�������첽��ƽ�ź���ΰ�ȫ��ʱ����",
+    "category": "CDC",
+    "expected_key_points": [
+      "2FF synchronizer",
+      "single-bit level condition",
+      "MTBF"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "խ����ӿ�ʱ���������ʱ������η�ֹ��ʧ��",
+    "category": "CDC",
+    "expected_key_points": [
+      "pulse stretching",
+      "toggle synchronizer",
+      "handshake"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "�������������Ϊʲô������λʹ�� 2FF��",
+    "category": "CDC",
+    "expected_key_points": [
+      "data coherency",
+      "skew",
+      "handshake or FIFO"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "�첽 FIFO �� Gray ָ��Ϊʲôֻ�ı�һλ��",
+    "category": "CDC",
+    "expected_key_points": [
+      "Gray code",
+      "pointer synchronization",
+      "full empty"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "CDC reconvergence �����ʲô���գ�",
+    "category": "CDC",
+    "expected_key_points": [
+      "independent latency",
+      "reconvergence",
+      "structural CDC"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "ͬ����ǰ��������߼�ΪʲôΣ�գ�",
+    "category": "CDC",
+    "expected_key_points": [
+      "glitch",
+      "source registration",
+      "metastability rate"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "2FF ͬ��������Ӧ��θ��� MTBF ѡ��",
+    "category": "CDC",
+    "expected_key_points": [
+      "settling time",
+      "clock frequency",
+      "data toggle rate"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "���ʱ�ӿ����ʱ��Ӧ���첽 CDC ������",
+    "category": "CDC",
+    "expected_key_points": [
+      "provable phase relation",
+      "different PLL",
+      "constraints"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "CDC waiver ��Ҫ��¼��Щ֤�ݣ�",
+    "category": "CDC",
+    "expected_key_points": [
+      "topology",
+      "mode",
+      "review owner"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "�����֤�첽 FIFO �ĸ�λ���״δ��䣿",
+    "category": "CDC",
+    "expected_key_points": [
+      "reset convergence",
+      "pointer state",
+      "assertion"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor CDC methodology",
+      "static CDC tool report"
+    ]
+  },
+  {
+    "question": "�첽��λ�ͷ�Ϊ�λ���� RDC ���գ�",
+    "category": "RDC",
+    "expected_key_points": [
+      "recovery removal",
+      "reset synchronizer",
+      "deassertion"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "�����λ��֮������ݽ�����μ�飿",
+    "category": "RDC",
+    "expected_key_points": [
+      "reset domains",
+      "isolation",
+      "structural RDC"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "��λͬ����Ϊʲôͨ���첽��λͬ���ͷţ�",
+    "category": "RDC",
+    "expected_key_points": [
+      "asynchronous assertion",
+      "synchronous deassertion",
+      "latency"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "��λ�ػ�ۻ����ʲô�������⣿",
+    "category": "RDC",
+    "expected_key_points": [
+      "different release cycles",
+      "reconvergence",
+      "assertions"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "������λ��Ӳ����λ����ʱ��α���ë�̣�",
+    "category": "RDC",
+    "expected_key_points": [
+      "reset combining",
+      "glitch-free logic",
+      "priority"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "����ģ�鲻��λʱ���֤������״̬��ȫ��",
+    "category": "RDC",
+    "expected_key_points": [
+      "initialization protocol",
+      "X propagation",
+      "formal proof"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "�͹�����ָ������ĸ�λ˳�������֤��",
+    "category": "RDC",
+    "expected_key_points": [
+      "power sequence",
+      "isolation",
+      "reset release"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "RDC ��̬�����е� waiver ���ǩ�ˣ�",
+    "category": "RDC",
+    "expected_key_points": [
+      "structural path",
+      "functional condition",
+      "review"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "����ģʽ�л���λԴʱ����Щ RDC ���գ�",
+    "category": "RDC",
+    "expected_key_points": [
+      "test mode",
+      "reset mux",
+      "glitch"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "��λ�����������оƬ�е���ʲô�����",
+    "category": "RDC",
+    "expected_key_points": [
+      "minimum pulse width",
+      "partial reset",
+      "timing check"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "vendor RDC methodology",
+      "library recovery/removal data"
+    ]
+  },
+  {
+    "question": "setup violation Ӧ��ʲô˳��λ���޸���",
+    "category": "STA",
+    "expected_key_points": [
+      "path validity",
+      "data delay",
+      "clock uncertainty"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "hold violation Ϊʲô���ܼ򵥽���ʱ��Ƶ�ʽ����",
+    "category": "STA",
+    "expected_key_points": [
+      "same-edge check",
+      "minimum delay",
+      "buffer insertion"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "set_false_path �� set_clock_groups ��ʲô���ò��죿",
+    "category": "STA",
+    "expected_key_points": [
+      "exception scope",
+      "asynchronous clocks",
+      "coverage"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "multicycle path Ϊʲô����ͬʱ���� hold Լ����",
+    "category": "STA",
+    "expected_key_points": [
+      "setup shift",
+      "hold adjustment",
+      "functional intent"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "input delay �� output delay Ӧ��δӰ弶�ӿ��Ƶ���",
+    "category": "STA",
+    "expected_key_points": [
+      "external timing",
+      "virtual clock",
+      "margin"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "ʱ�Ӳ�ȷ���Ȱ�����Щ�ɷ֣�",
+    "category": "STA",
+    "expected_key_points": [
+      "jitter",
+      "skew",
+      "margin"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "generated clock �������������Ⱦ STA��",
+    "category": "STA",
+    "expected_key_points": [
+      "waveform",
+      "source",
+      "clock propagation"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "OCV/AOCV/POCV �ĺ��Ĳ�����ʲô��",
+    "category": "STA",
+    "expected_key_points": [
+      "variation model",
+      "path depth",
+      "statistical derate"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "ʱ��������������������������飿",
+    "category": "STA",
+    "expected_key_points": [
+      "exception coverage",
+      "unconstrained path",
+      "audit"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "����Լ�����ۺϺ� P&R ����α���һ�£�",
+    "category": "STA",
+    "expected_key_points": [
+      "constraint ownership",
+      "object names",
+      "signoff parity"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "timing signoff tool user guide",
+      "Liberty timing data"
+    ]
+  },
+  {
+    "question": "�ۺϺ����ͻȻ����Ӧ��ζ�λ RTL ����",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "report comparison",
+      "inference",
+      "resource sharing"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "Ϊʲô��̬ѭ���߽���ܲ����ۺϣ�",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "static elaboration",
+      "bounded loop",
+      "hardware replication"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "RAM �ƶ�ʧ��ʱӦ�����Щ����������",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "template",
+      "read write mode",
+      "vendor inference"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "�ۺ��е� retiming ������Ӱ����֤��",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "register movement",
+      "equivalence checking",
+      "constraints"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "dont_touch ����ʹ�û����ʲô���⣿",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "optimization barrier",
+      "timing",
+      "area"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "ʱ���ſ�Ӧ�� RTL �ƶϻ���ʵ���� ICG��",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "flow ownership",
+      "library cell",
+      "verification"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "��ͬ case ���д�����Ӱ���ۺϽ����",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "priority",
+      "parallel",
+      "unique case"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "��������ʽλ�����Ӱ��˷��������",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "operand width",
+      "signedness",
+      "truncation"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "�ۺ�Լ��ȱʧ�ᵼ����Щ���Ż���",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "clock definition",
+      "I/O delay",
+      "timing-driven optimization"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "������߼��ȼۼ�鱣�� RTL ������ת����",
+    "category": "SYNTHESIS",
+    "expected_key_points": [
+      "LEC",
+      "mapping",
+      "black box"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "synthesis tool user guide",
+      "technology library guide"
+    ]
+  },
+  {
+    "question": "UVM scoreboard Ӧ�Ƚ��������������źţ�",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "abstraction level",
+      "ordering",
+      "predictor"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "���ܸ����ʴﵽ 100% Ϊʲô�Բ���˵����֤��ɣ�",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "coverage model quality",
+      "assertions",
+      "bug escape"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "SVA �� overlapped �� non-overlapped implication ���ѡ��",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "sampling cycle",
+      "|->",
+      "|=>"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "�����֤ APB wait-state �������Ӧ��ϣ�",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "protocol timing",
+      "PREADY",
+      "PSLVERR"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "Լ��������Գ��ֲ��ɽ�Լ��ʱ��ε��ԣ�",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "constraint isolation",
+      "solver diagnostics",
+      "bias"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "UVM objection ʹ�ô���Ϊʲô����ɲ��Թ���",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "phase lifecycle",
+      "raise drop",
+      "drain time"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "�ο�ģ���� DUT ͬԴʵ����ʲô��֤���գ�",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "common-mode bug",
+      "independent model",
+      "specification"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "X propagation ����Ӧ������Щ������",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "initialization",
+      "power reset",
+      "control corruption"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "�ع����ʧ������Զ���С������������",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "seed",
+      "configuration capture",
+      "test reduction"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "��ʽ��֤�������λ�����֤Ŀ�ꣿ",
+    "category": "VERIFICATION",
+    "expected_key_points": [
+      "state space",
+      "end-to-end scenarios",
+      "assumptions"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE SystemVerilog standard",
+      "UVM standard"
+    ]
+  },
+  {
+    "question": "ʱ���ſ���α������ë��ʱ�ӣ�",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "ICG latch",
+      "enable stability",
+      "clock gating check"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "power gating �� isolation Ӧ�ں�ʱ������",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "power sequence",
+      "clamp",
+      "domain boundary"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "retention register �ı���ָ�Э�������֤��",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "save restore",
+      "retention supply",
+      "state comparison"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "UPF �� supply set �� power domain ��ι�����",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "power intent",
+      "supply network",
+      "domain"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "��ƽת������������ɵ�ѹ�������",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "voltage crossing",
+      "level shifter",
+      "placement"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "��̬���ĵ���Ҫ RTL ������������Щ��",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "activity factor",
+      "capacitance",
+      "frequency"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "���ѹģʽ�� STA Ӧ�����֯����������",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "MMMC",
+      "voltage corner",
+      "mode"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "�͹��ķ����е� corruption semantics ��ʲô��",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "power state",
+      "X corruption",
+      "isolation"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "clock gating coverage Ӧ�������壿",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "enable scenarios",
+      "gated clock activity",
+      "functional coverage"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "�͹�������� always-on �߼����ʶ��",
+    "category": "LOW_POWER",
+    "expected_key_points": [
+      "AON supply",
+      "control path",
+      "power sequence"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "IEEE 1801 UPF standard",
+      "low-power tool methodology"
+    ]
+  },
+  {
+    "question": "scan chain �����Թ���ʱ�������ЩӰ�죿",
+    "category": "DFT",
+    "expected_key_points": [
+      "scan mux",
+      "timing overhead",
+      "reorder"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "stuck-at �� transition fault ģ����ʲô����",
+    "category": "DFT",
+    "expected_key_points": [
+      "fault model",
+      "at-speed",
+      "coverage"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "ATPG coverage ��ʱӦ��η���δ�����ϣ�",
+    "category": "DFT",
+    "expected_key_points": [
+      "untestable",
+      "aborted",
+      "constraints"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "��ʱ�� scan shift ��α���ʱ�ӳ�ͻ��",
+    "category": "DFT",
+    "expected_key_points": [
+      "lockup latch",
+      "clock domains",
+      "shift protocol"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "MBIST Ϊʲô��Ҫ March algorithm��",
+    "category": "DFT",
+    "expected_key_points": [
+      "memory fault",
+      "operation sequence",
+      "coverage"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "���Ե�������Ȩ�⸲������ PPA��",
+    "category": "DFT",
+    "expected_key_points": [
+      "control observe points",
+      "coverage gain",
+      "overhead"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "X-bounding Ϊʲô��Ӱ�� scan diagnosis��",
+    "category": "DFT",
+    "expected_key_points": [
+      "unknown source",
+      "masking",
+      "diagnosis resolution"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "compression architecture �� aliasing �������������",
+    "category": "DFT",
+    "expected_key_points": [
+      "compactor",
+      "signature",
+      "probability"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "DFT ģʽԼ��Ӧ��ν��� STA��",
+    "category": "DFT",
+    "expected_key_points": [
+      "test clocks",
+      "case analysis",
+      "test mode"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "boundary scan ���ڲ� scan ��Ŀ���кβ�ͬ��",
+    "category": "DFT",
+    "expected_key_points": [
+      "board interconnect",
+      "internal logic",
+      "JTAG"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "DFT tool user guide",
+      "test methodology reference"
+    ]
+  },
+  {
+    "question": "�굥Ԫ floorplan ��μ���ӵ���볤���ߣ�",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "macro placement",
+      "channels",
+      "connectivity"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "ʱ�����ۺϺ� skew ����Ӧ��ζ�λ��",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "clock topology",
+      "latency",
+      "variation"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "IR drop ����������־�̬�붯̬����",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "power grid",
+      "activity",
+      "decap"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "routing congestion Ϊʲô������ placement ����Ԥ�⣿",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "density",
+      "pin access",
+      "global routing"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "setup �޸��� hold �޸��� ECO ����ʲô��ͻ��",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "delay trade-off",
+      "path sharing",
+      "corner"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "����ЧӦ����ڲ��߽׶��޸���",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "antenna ratio",
+      "diode",
+      "layer hopping"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "Ϊʲô���ȳ�����Ҫר���ۺϣ�",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "fanout",
+      "buffer tree",
+      "transition"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "��Ƕ�ģǩ����ο��Ƴ���������",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "scenario reduction",
+      "coverage",
+      "correlation"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "�������ͬʱӰ�� setup �� hold��",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "coupling",
+      "delta delay",
+      "aggressor alignment"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "������֪�ۺ��ܽ����Щ��ͳ�ۺ�ä�㣿",
+    "category": "PHYSICAL_DESIGN",
+    "expected_key_points": [
+      "wire delay",
+      "congestion",
+      "placement estimate"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "place-and-route tool guide",
+      "foundry signoff rule deck"
+    ]
+  },
+  {
+    "question": "�弶��ˮ�ߵ�����ð������Щ����������",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "forwarding",
+      "stall",
+      "dependency"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "Ƭ�������ٲ�Ӧ���Ȩ�⹫ƽ�����ӳ٣�",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "arbitration",
+      "QoS",
+      "starvation"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "cache coherence Ŀ¼Э�����չ���������",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "directory",
+      "sharer tracking",
+      "traffic"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "�첽 FIFO �����θ���ͻ���������㣿",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "rate mismatch",
+      "burst",
+      "latency"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "NoC ��ͨ����λ��� head-of-line blocking��",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "virtual channel",
+      "buffer",
+      "routing"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "��ˮ�߼����Ƶ�ʡ����ĺͷ�֧�����к�Ӱ�죿",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "frequency",
+      "register power",
+      "mispredict penalty"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "AXI outstanding transaction �������ȷ����",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "latency hiding",
+      "ID space",
+      "buffering"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "Ӳ����������˫�����ʱ��Ч��",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "compute transfer overlap",
+      "bandwidth",
+      "buffer size"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "�жϼܹ���α���߸����µ� livelock��",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "priority",
+      "masking",
+      "rate control"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  },
+  {
+    "question": "SoC reset and boot �ܹ�Ӧ������Щ������ϵ��",
+    "category": "ARCHITECTURE",
+    "expected_key_points": [
+      "reset tree",
+      "clock power dependency",
+      "boot order"
+    ],
+    "forbidden_errors": [
+      "invented citation or DOI",
+      "unqualified universal recommendation",
+      "missing applicability condition"
+    ],
+    "recommended_sources": [
+      "architecture specification",
+      "measured workload evidence"
+    ]
+  }
+]
