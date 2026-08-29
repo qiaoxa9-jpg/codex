@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>collective — motion prompt library</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root { --ink:#f2f0ef; --muted:#9b9799; --line:rgba(255,255,255,.10); --surface:#151515; --hot:#ff7d35; }
+    * { box-sizing:border-box; }
+    html { background:#090909; scroll-behavior:smooth; }
+    body { margin:0; min-width:320px; overflow-x:hidden; background:#090909; color:var(--ink); font-family:Manrope,Arial,sans-serif; }
+    button,a { font:inherit; }
+    button { border:0; cursor:pointer; }
+    .shell { max-width:1500px; margin:auto; padding:0 24px 72px; }
+    .topbar { height:68px; display:flex; align-items:center; gap:36px; position:sticky; top:0; z-index:20; background:linear-gradient(#090909 74%,transparent); }
+    .brand { color:#f8f7f6; text-decoration:none; font-weight:800; font-size:23px; letter-spacing:-1.3px; display:flex; align-items:center; gap:9px; }
+    .brand-mark { width:30px; height:25px; position:relative; display:inline-block; background:linear-gradient(135deg,#f6a9d8,#d1a5ff 44%,#ffac71); clip-path:polygon(0 15%,19% 0,43% 59%,67% 0,100% 15%,72% 100%,44% 43%,20% 100%); filter:drop-shadow(0 0 9px #e59eff); }
+    .nav { display:flex; align-items:center; gap:30px; }
+    .nav button { color:#aaa6a8; background:transparent; font-size:13px; font-weight:700; padding:8px 0; transition:color .25s; }
+    .nav button:hover,.nav button.active { color:#fff; }
+    .nav .new { font:500 8px DM Mono,monospace; color:#ffb77d; border:1px solid #6c4a31; padding:1px 3px; border-radius:4px; margin-left:3px; vertical-align:middle; }
+    .spacer { flex:1; }
+    .search { width:35px; height:35px; background:transparent; position:relative; color:#aaa; }
+    .search:before { content:""; width:12px; height:12px; border:2px solid currentColor; border-radius:50%; position:absolute; left:7px; top:7px; }
+    .search:after { content:""; height:8px; border-left:2px solid currentColor; transform:rotate(-45deg); position:absolute; left:23px; top:21px; }
+    .top-sign { border-radius:999px; background:#f4f2f1; color:#151515; padding:10px 21px; font-size:13px; font-weight:800; text-decoration:none; }
+
+    .gallery { columns:4 260px; column-gap:13px; }
+    .card { display:inline-block; width:100%; break-inside:avoid; margin:0 0 22px; color:inherit; text-decoration:none; cursor:pointer; }
+    .card[hidden] { display:none; }
+    .preview { border-radius:19px; overflow:hidden; height:auto; aspect-ratio:4 / 3; position:relative; background:#242424; isolation:isolate; transform:translateZ(0); }
+    .card.tall .preview { aspect-ratio:1 / 1.08; }
+    .card.wide .preview { aspect-ratio:1.25 / 1; }
+    .preview:after { content:""; pointer-events:none; position:absolute; inset:0; z-index:4; border-radius:inherit; box-shadow:inset 0 0 0 1px rgba(255,255,255,.07), inset 0 -80px 80px rgba(0,0,0,.08); }
+    .card:hover .preview { box-shadow:0 14px 38px rgba(0,0,0,.35); }
+    .meta { position:relative; padding-top:10px; line-height:1.18; }
+    .meta h2 { margin:0; font-size:16px; letter-spacing:-.65px; font-weight:800; }
+    .meta p { color:#9a9698; margin:4px 0 0; font-size:11px; font-weight:600; }
+    .tag { position:absolute; right:0; top:10px; color:#bebabb; font-size:15px; transition:transform .3s, color .3s; }
+    .card:hover .tag { color:#fff; transform:translate(2px,-2px); }
+    .loading { position:absolute; inset:0; background:linear-gradient(105deg,#222 19%,#3d3d3d 46%,#222 73%); background-size:220% 100%; animation:shimmer 2s linear infinite; }
+    @keyframes shimmer { to { background-position:-220% 0; } }
+
+    /* The cards below are self-contained, looping motion studies. */
+    .toy-bg { position:absolute; inset:0; overflow:hidden; background:radial-gradient(circle at 25% 20%,#ffefbd 0 2%,transparent 20%),linear-gradient(145deg,#f191b9,#dc7cad 43%,#9a5b99); }
+    .toy-floor { position:absolute; width:140%; height:50%; left:-20%; bottom:-31%; border-radius:50%; background:radial-gradient(ellipse,#ffd4e5 0 10%,#a55591 48%,transparent 70%); filter:blur(5px); }
+    .toy { position:absolute; width:44%; height:60%; left:27%; top:21%; animation:float 4.8s ease-in-out infinite; filter:drop-shadow(0 18px 8px #783b7455); }
+    .head { position:absolute; width:92%; aspect-ratio:1; top:0; left:4%; border-radius:46% 46% 43% 43%; background:linear-gradient(125deg,#fff0e2,#fec7af 55%,#e38981); }
+    .ear { position:absolute; width:32%; aspect-ratio:1; border-radius:52% 48% 48% 52%; background:#f2a18d; top:4%; z-index:-1; }.ear:first-child{left:-12%;transform:rotate(-31deg)}.ear:nth-child(2){right:-12%;transform:rotate(31deg)}
+    .hair { position:absolute; z-index:2; width:80%; height:37%; top:-6%; left:10%; border-radius:55% 55% 28% 28%; background:repeating-linear-gradient(100deg,#70415f 0 11%,#9c5075 12% 19%); transform:rotate(-4deg); }
+    .eyes { position:absolute; left:23%; top:45%; width:54%; display:flex; justify-content:space-between; z-index:3; }.eyes i{display:block;width:14%;aspect-ratio:1;border-radius:50%;background:#592e51;animation:blink 4s infinite;}.smile{position:absolute;width:24%;height:10%;border-bottom:3px solid #b66269;border-radius:0 0 50% 50%;left:38%;top:65%;z-index:3}
+    .body { position:absolute; width:88%; height:45%; left:6%; bottom:0; border-radius:40% 40% 18% 18%; background:linear-gradient(135deg,#fff6d9,#ffc2d1 55%,#dc7aaf); }
+    .body:before,.body:after { content:""; position:absolute; top:14%; width:18%; height:66%; border-radius:999px; background:#ffc3bf; }.body:before{left:-11%;transform:rotate(17deg)}.body:after{right:-11%;transform:rotate(-17deg)}
+    @keyframes float { 50% { transform:translateY(-13px) rotate(2deg); } } @keyframes blink { 0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.1)} }
+
+    .chrome { background:#a3f0dc; overflow:hidden; }.chrome:before{content:"";position:absolute;inset:-30%;background:conic-gradient(from 90deg,#ffe3a1,#79d4f5,#cf89f6,#ff9db4,#ffe3a1);animation:spin 9s linear infinite}.chrome:after{content:"OBJECT / 01";position:absolute;bottom:15px;left:16px;font:500 10px DM Mono;color:#113d51;letter-spacing:1px}.orb{position:absolute;width:53%;aspect-ratio:1;left:23%;top:17%;border-radius:50%;background:radial-gradient(circle at 33% 30%,#fff 0 5%,#c9fffa 9%,#46aab2 39%,#6a3ca0 73%);box-shadow:inset -21px -18px 38px #25356a,20px 24px 20px #4d6aa380;animation:float 5s ease-in-out infinite reverse}.orb:after{content:"";position:absolute;inset:7%;border-radius:50%;border:1px solid #ffffff91;box-shadow:inset 2px 5px 9px #fff8}
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    .poster { background:#181023; }.poster:before { content:""; position:absolute; inset:-45%; background:repeating-conic-gradient(#ff5f93 0 3deg,#3e144a 4deg 9deg,#fba84d 10deg 11deg); animation:spin 18s linear infinite; }.poster:after{content:"FUTURE\A\IS NOW";white-space:pre;position:absolute;left:15px;bottom:15px;font:800 clamp(22px,3vw,39px)/.83 Manrope;color:#fff;letter-spacing:-2px;text-shadow:2px 2px #ec5d8c}.poster .ring{position:absolute;inset:23% 15%;border-radius:50%;border:18px solid #e3ff6a;box-shadow:0 0 35px #d6ff40,inset 0 0 28px #fff;animation:pulse 2.3s ease-in-out infinite}
+    @keyframes pulse { 50% { transform:scale(.83); filter:hue-rotate(60deg); } }
+
+    .hologram { background:linear-gradient(160deg,#0d2443,#27152e 58%,#c46255); }.grid { position:absolute; inset:42% -15% -40%; background:linear-gradient(#ffffff70 1px,transparent 1px),linear-gradient(90deg,#ffffff70 1px,transparent 1px); background-size:26px 26px; transform:perspective(220px) rotateX(62deg); animation:gridmove 3s linear infinite; }.glow-card{position:absolute;left:18%;top:20%;width:64%;height:43%;border:1px solid #83d5ff;border-radius:8px;background:linear-gradient(135deg,#90eff45e,#f5a3dd34);backdrop-filter:blur(3px);box-shadow:0 0 20px #6ca4ffaa;transform:rotate(-9deg);animation:wobble 4s ease-in-out infinite}.glow-card:after{content:"SIGNAL\A • 2049";white-space:pre;position:absolute;left:12px;top:12px;font:500 10px/1.5 DM Mono;color:#d8ffff}.scan{position:absolute;inset:0;background:linear-gradient(transparent 48%,#b6faff62 50%,transparent 52%);background-size:100% 9px;mix-blend-mode:screen;animation:scan 3s linear infinite}@keyframes gridmove{to{background-position:0 26px,26px 0}}@keyframes wobble{50%{transform:rotate(6deg) translateY(-10px)}}@keyframes scan{to{background-position:0 100%}}
+
+    .mini-room { background:linear-gradient(135deg,#fee0bd,#d89cd0 48%,#6269c9); }.room-wall{position:absolute;inset:0;background:linear-gradient(90deg,#00000010 1px,transparent 1px);background-size:22px}.room-table{position:absolute;width:150%;height:27%;bottom:-12%;left:-26%;background:#403053;transform:perspective(140px) rotateX(56deg);border-top:5px solid #e5b7e4}.lamp{position:absolute;width:13%;height:49%;left:15%;bottom:19%;background:#48355a;border-radius:12px 12px 5px 5px;box-shadow:46px 2px #48355a}.lamp:before{content:"";position:absolute;width:220%;aspect-ratio:1;left:-59%;top:-21%;border-radius:50%;background:#fff6b8;box-shadow:0 0 35px 16px #ffb16580;animation:lamp 2s ease-in-out infinite}.plant{position:absolute;right:15%;bottom:25%;width:15%;height:38%;background:repeating-radial-gradient(ellipse at bottom,#699e80 0 18%,#355b62 20% 27%);border-radius:80% 10% 65% 20%;animation:sway 3.3s ease-in-out infinite}@keyframes lamp{50%{filter:brightness(.65)}}@keyframes sway{50%{transform:rotate(8deg)}}
+
+    .blueprint { background:#f5f0e4; color:#1d2b51; }.blueprint:before { content:""; position:absolute; inset:0; opacity:.4; background:linear-gradient(#39539d 1px,transparent 1px),linear-gradient(90deg,#39539d 1px,transparent 1px); background-size:18px 18px; }.blueprint .wire{position:absolute;border:2px solid #1c438f;border-radius:50%;animation:draw 3s ease-in-out infinite}.blueprint .wire:nth-child(1){width:56%;height:37%;left:20%;top:22%}.blueprint .wire:nth-child(2){width:24%;height:54%;left:39%;top:14%;border-radius:50%}.blueprint .wire:nth-child(3){width:80%;height:1px;left:10%;top:72%;border-width:2px 0 0}.blueprint .label{position:absolute;left:12%;bottom:10%;font:500 9px DM Mono;letter-spacing:.7px}@keyframes draw{50%{transform:scale(.92);border-color:#ed5d64}}
+
+    .cta-card { min-height:232px; padding:23px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid var(--line); border-radius:20px; background:#151515; position:relative; overflow:hidden; break-inside:avoid; margin-bottom:22px; }.cta-card:before{content:"";position:absolute;width:120%;height:80%;left:-20%;top:-30%;background:radial-gradient(ellipse,#fe7135b0,transparent 63%);filter:blur(9px);animation:drift 8s ease-in-out infinite alternate}.cta-card>*{position:relative}.cta-brand{font:700 11px DM Mono;color:#ffeedb}.cta-card h2{font-size:22px;letter-spacing:-1px;line-height:1.04;margin:0;max-width:270px}.cta-card p{margin:0;color:#c8c1be;font-size:12px;line-height:1.35;max-width:245px}.cta-card a{align-self:flex-start;text-decoration:none;background:white;color:#151515;border-radius:999px;padding:10px 17px;font-size:12px;font-weight:800}@keyframes drift{to{transform:translate(25%,30%) rotate(30deg)}}
+
+    .contact-wrap { position:fixed; right:23px; bottom:22px; z-index:30; min-width:132px; display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+    .contact-options { display:grid; gap:7px; max-height:0; opacity:0; transform:translateY(10px) scale(.96); overflow:hidden; transition:max-height .32s ease,opacity .22s ease,transform .32s ease; pointer-events:none; }
+    .contact-wrap:hover .contact-options,.contact-wrap:focus-within .contact-options,.contact-wrap.open .contact-options { max-height:120px; opacity:1; transform:none; pointer-events:auto; }
+    .contact-options a { width:160px; display:flex; align-items:center; justify-content:space-between; background:#1e1e1e; border:1px solid #353535; color:#f6f4f3; border-radius:11px; padding:10px 12px; text-decoration:none; font-size:12px; font-weight:700; box-shadow:0 9px 24px #0006; }.contact-options a span{color:#989394;font:10px DM Mono}.contact-options a:hover{border-color:#f1a87b;background:#292221}.contact-main{display:flex;align-items:center;gap:9px;background:#f7f4f3;color:#111;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px #0008;font-size:13px;font-weight:800}.contact-main i{width:8px;height:8px;background:#ff7541;border-radius:50%;box-shadow:0 0 0 4px #ff754133;}
+    .empty { display:none; color:#a8a3a5; padding:30px 0; }
+    @media (max-width:800px){.shell{padding:0 16px 64px}.topbar{gap:16px}.brand{font-size:20px}.nav{gap:14px}.nav button:nth-child(n+3),.search{display:none}.top-sign{padding:9px 14px}.gallery{columns:2 150px;column-gap:11px}.card{margin-bottom:18px}.meta h2{font-size:14px}.cta-card{min-height:210px;padding:18px}.cta-card h2{font-size:19px}.contact-wrap{right:14px;bottom:14px}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="collective 首页"><span class="brand-mark"></span>collective</a>
+      <nav class="nav" aria-label="内容筛选">
+        <button class="active" data-filter="all">All</button><button data-filter="3d">3D <span class="new">NEW</span></button><button data-filter="hero">Hero</button><button data-filter="space">Space</button><button data-filter="lab">Lab</button>
+      </nav>
+      <span class="spacer"></span><button class="search" aria-label="搜索"></button><a class="top-sign" href="#gallery">Explore</a>
+    </header>
+    <section id="gallery" class="gallery" aria-label="动态创意案例库">
+      <article class="card tall" data-type="3d hero"><div class="preview toy-bg"><div class="toy-floor"></div><div class="toy"><span class="ear"></span><span class="ear"></span><div class="head"><div class="hair"></div><div class="eyes"><i></i><i></i></div><div class="smile"></div></div><div class="body"></div></div></div><div class="meta"><h2>Soft Companion</h2><p>3D Collectible</p><span class="tag">↗</span></div></article>
+      <article class="card" data-type="3d"><div class="preview chrome"><div class="orb"></div></div><div class="meta"><h2>Chrome Memory</h2><p>3D Object</p><span class="tag">↗</span></div></article>
+      <article class="card wide" data-type="hero"><div class="preview poster"><div class="ring"></div></div><div class="meta"><h2>Future-State</h2><p>Landing Page</p><span class="tag">↗</span></div></article>
+      <article class="card" data-type="space"><div class="preview hologram"><div class="grid"></div><div class="glow-card"></div><div class="scan"></div></div><div class="meta"><h2>Signal Archive</h2><p>Spatial Interface</p><span class="tag">↗</span></div></article>
+      <article class="card tall" data-type="lab hero"><div class="preview mini-room"><div class="room-wall"></div><div class="room-table"></div><div class="lamp"></div><div class="plant"></div></div><div class="meta"><h2>Quiet Geometry</h2><p>Editorial Hero</p><span class="tag">↗</span></div></article>
+      <article class="card" data-type="lab"><div class="preview blueprint"><div class="wire"></div><div class="wire"></div><div class="wire"></div><div class="label">SPEC / 2408 · FIELD STUDY</div></div><div class="meta"><h2>Making / Loop</h2><p>Design System</p><span class="tag">↗</span></div></article>
+      <article class="cta-card"><span class="cta-brand">✦ MOTION LIBRARY</span><h2>Design that keeps moving after the first impression.</h2><p>Original responsive visual experiments, built without external video assets.</p><a href="#gallery">View studies</a></article>
+      <article class="card" data-type="3d"><div class="preview toy-bg" style="background:linear-gradient(140deg,#c0ebff,#a391ef 52%,#6c4b86)"><div class="toy-floor" style="background:radial-gradient(ellipse,#fff 0 6%,#8fc9ef 48%,transparent 70%)"></div><div class="toy" style="transform:scale(.86);animation-delay:-2s"><span class="ear"></span><span class="ear"></span><div class="head"><div class="hair" style="background:repeating-linear-gradient(100deg,#2b4667 0 11%,#5979a4 12% 19%)"></div><div class="eyes"><i></i><i></i></div><div class="smile"></div></div><div class="body" style="background:linear-gradient(135deg,#eeffff,#b1ccff 55%,#9284d3)"></div></div></div><div class="meta"><h2>Good Night, Pilot</h2><p>3D Collectible</p><span class="tag">↗</span></div></article>
+      <article class="card wide" data-type="space hero"><div class="preview hologram" style="background:linear-gradient(160deg,#250f34,#6d2751 55%,#e3a768)"><div class="grid"></div><div class="glow-card" style="border-color:#ffbd68;box-shadow:0 0 20px #ff956aaa"></div><div class="scan"></div></div><div class="meta"><h2>Solstice Console</h2><p>Hero Section</p><span class="tag">↗</span></div></article>
+      <article class="card" data-type="lab"><div class="preview mini-room" style="background:linear-gradient(135deg,#b2eee2,#76bdaa 48%,#366e73)"><div class="room-wall"></div><div class="room-table"></div><div class="lamp"></div><div class="plant"></div></div><div class="meta"><h2>Field Office</h2><p>Creative Studio</p><span class="tag">↗</span></div></article>
+      <article class="card" data-type="hero"><div class="preview poster" style="background:#101329"><div class="ring" style="border-color:#6ef4ff"></div></div><div class="meta"><h2>Wake the Archive</h2><p>Campaign Page</p><span class="tag">↗</span></div></article>
+    </section>
+    <p class="empty" id="empty">该筛选下暂时没有案例。</p>
+  </main>
+  <aside class="contact-wrap" aria-label="联系我们">
+    <div class="contact-options">
+      <a href="#contact-wechat" aria-label="微信咨询"><strong>微信咨询</strong><span>WeChat</span></a>
+      <a href="mailto:hello@collective.studio" aria-label="发送邮件"><strong>hello@collective.studio</strong><span>Email ↗</span></a>
+    </div>
+    <button class="contact-main" aria-label="展开联系方式"><i></i> 联系我们</button>
+  </aside>
+  <script>
+    const cards = [...document.querySelectorAll('.card')];
+    const empty = document.querySelector('#empty');
+    document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+      document.querySelectorAll('[data-filter]').forEach(item => item.classList.toggle('active', item === button));
+      const type = button.dataset.filter;
+      let visible = 0;
+      cards.forEach(card => { const show = type === 'all' || card.dataset.type.includes(type); card.hidden = !show; visible += show; });
+      empty.style.display = visible ? 'none' : 'block';
+    }));
+    const contact = document.querySelector('.contact-wrap');
+    document.querySelector('.contact-main').addEventListener('click', () => contact.classList.toggle('open'));
+  </script>
+</body>
+</html>

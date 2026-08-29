@@ -1,0 +1,7 @@
+{
+  "name": "collective-motion-library",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  }
+}
