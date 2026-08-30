@@ -17,6 +17,7 @@ class Settings(BaseSettings):
     llm_base_url: str = "https://api.openai.com/v1"
     llm_model: str = "gpt-5-mini"
     request_timeout_seconds: float = 12.0
+    cors_origins: str = "http://localhost:3000,http://127.0.0.1:3000"
 
     model_config = SettingsConfigDict(
         env_file=("../.env", ".env"), env_file_encoding="utf-8", extra="ignore"
@@ -26,4 +27,3 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-
