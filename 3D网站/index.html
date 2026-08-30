@@ -21,7 +21,6 @@
     .nav { display:flex; align-items:center; gap:30px; }
     .nav button { color:#aaa6a8; background:transparent; font-size:13px; font-weight:700; padding:8px 0; transition:color .25s; }
     .nav button:hover,.nav button.active { color:#fff; }
-    .nav .new { font:500 8px DM Mono,monospace; color:#ffb77d; border:1px solid #6c4a31; padding:1px 3px; border-radius:4px; margin-left:3px; vertical-align:middle; }
     .spacer { flex:1; }
     .search { width:35px; height:35px; background:transparent; position:relative; color:#aaa; }
     .search:before { content:""; width:12px; height:12px; border:2px solid currentColor; border-radius:50%; position:absolute; left:7px; top:7px; }
@@ -76,6 +75,17 @@
     .contact-options a { width:160px; display:flex; align-items:center; justify-content:space-between; background:#1e1e1e; border:1px solid #353535; color:#f6f4f3; border-radius:11px; padding:10px 12px; text-decoration:none; font-size:12px; font-weight:700; box-shadow:0 9px 24px #0006; }.contact-options a span{color:#989394;font:10px DM Mono}.contact-options a:hover{border-color:#f1a87b;background:#292221}.contact-main{display:flex;align-items:center;gap:9px;background:#f7f4f3;color:#111;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px #0008;font-size:13px;font-weight:800}.contact-main i{width:8px;height:8px;background:#ff7541;border-radius:50%;box-shadow:0 0 0 4px #ff754133;}
     .empty { display:none; color:#a8a3a5; padding:30px 0; }
     @media (max-width:800px){.shell{padding:0 16px 64px}.topbar{gap:16px}.brand{font-size:20px}.nav{gap:14px}.nav button:nth-child(n+3),.search{display:none}.top-sign{padding:9px 14px}.gallery{columns:2 150px;column-gap:11px}.card{margin-bottom:18px}.meta h2{font-size:14px}.cta-card{min-height:210px;padding:18px}.cta-card h2{font-size:19px}.contact-wrap{right:14px;bottom:14px}}
+    /* Two complete character stages framed by the full feature-card library. */
+    .gallery { columns:unset; display:grid; grid-template-columns:minmax(180px,.72fr) minmax(360px,1.4fr) minmax(180px,.72fr); grid-template-areas:"chrome blue future" "signal blue quiet" "cta pink making" "solstice pink office" ". pink wake"; gap:20px 16px; align-items:start; }
+    .gallery > .card,.gallery > .cta-card { width:100%; margin:0; break-inside:auto; }
+    .gallery > .card:nth-child(1) { grid-area:pink; }.gallery > .card:nth-child(2) { grid-area:chrome; }.gallery > .card:nth-child(3) { grid-area:future; }.gallery > .card:nth-child(4) { grid-area:signal; }.gallery > .card:nth-child(5) { grid-area:quiet; }.gallery > .card:nth-child(6) { grid-area:making; }.gallery > .cta-card { grid-area:cta; }.gallery > .card:nth-child(8) { grid-area:blue; }.gallery > .card:nth-child(9) { grid-area:solstice; }.gallery > .card:nth-child(10) { grid-area:office; }.gallery > .card:nth-child(11) { grid-area:wake; }
+    .gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview { height:100%; min-height:520px; aspect-ratio:auto; }
+    .gallery > .card:nth-child(1) .toy { width:44%; height:60%; left:27%; top:20%; }
+    .gallery > .card:nth-child(8) .toy { width:42%; height:56%; left:29%; top:22%; }
+    .gallery > .card:not(:nth-child(1)):not(:nth-child(8)) .preview { aspect-ratio:1.32 / 1; }
+    .gallery > .cta-card { min-height:0; height:100%; }
+    @media (max-width:980px) { .gallery { grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-areas:"blue blue" "chrome future" "signal quiet" "pink pink" "cta making" "solstice office" "wake wake"; gap:18px 14px; }.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview { min-height:440px; }.gallery > .cta-card { min-height:210px; } }
+    @media (max-width:620px) { .gallery { display:grid; grid-template-columns:1fr; grid-template-areas:"blue" "chrome" "future" "signal" "quiet" "pink" "cta" "making" "solstice" "office" "wake"; gap:18px; }.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview { min-height:390px; }.gallery > .card:not(:nth-child(1)):not(:nth-child(8)) .preview { aspect-ratio:1.22 / 1; } }
   </style>
 </head>
 <body>
@@ -83,7 +93,7 @@
     <header class="topbar">
       <a class="brand" href="#top" aria-label="collective 首页"><span class="brand-mark"></span>collective</a>
       <nav class="nav" aria-label="内容筛选">
-        <button class="active" data-filter="all">All</button><button data-filter="3d">3D <span class="new">NEW</span></button><button data-filter="hero">Hero</button><button data-filter="space">Space</button><button data-filter="lab">Lab</button>
+        <button class="active" data-filter="all">All</button><button data-filter="hero">Hero</button><button data-filter="space">Space</button><button data-filter="lab">Lab</button>
       </nav>
       <span class="spacer"></span><button class="search" aria-label="搜索"></button><a class="top-sign" href="#gallery">Explore</a>
     </header>
@@ -100,8 +110,31 @@
       <article class="card" data-type="lab"><div class="preview mini-room" style="background:linear-gradient(135deg,#b2eee2,#76bdaa 48%,#366e73)"><div class="room-wall"></div><div class="room-table"></div><div class="lamp"></div><div class="plant"></div></div><div class="meta"><h2>Field Office</h2><p>Creative Studio</p><span class="tag">↗</span></div></article>
       <article class="card" data-type="hero"><div class="preview poster" style="background:#101329"><div class="ring" style="border-color:#6ef4ff"></div></div><div class="meta"><h2>Wake the Archive</h2><p>Campaign Page</p><span class="tag">↗</span></div></article>
     </section>
+    <section id="feature-zone" class="feature-zone" aria-labelledby="feature-zone-title" tabindex="-1">
+      <div>
+        <p class="feature-zone__eyebrow" id="feature-zone-eyebrow">FEATURE AREA / 选择功能卡</p>
+        <h2 id="feature-zone-title">选择一张功能卡，进入对应功能区</h2>
+        <p class="feature-zone__copy" id="feature-zone-copy">每个卡片都对应一个独立的创意功能说明，可通过点击或键盘打开。</p>
+      </div>
+      <a id="feature-zone-action" class="feature-zone__action" href="#gallery">返回案例库 ↑</a>
+    </section>
     <p class="empty" id="empty">该筛选下暂时没有案例。</p>
   </main>
+  <section id="feature-space" class="feature-space" aria-hidden="true" aria-labelledby="feature-space-title">
+    <header class="feature-space__bar">
+      <button type="button" class="feature-space__back">← 返回案例库</button>
+      <p class="feature-space__label">COLLECTIVE / FEATURE SPACE</p>
+    </header>
+    <div class="feature-space__content">
+      <div id="feature-space-visual" class="feature-space__visual"></div>
+      <article class="feature-space__detail">
+        <p id="feature-space-kicker" class="feature-space__kicker">FEATURE SPACE</p>
+        <h1 id="feature-space-title">Feature</h1>
+        <p id="feature-space-copy">Explore this motion study.</p>
+        <button type="button" class="feature-space__close">返回案例库</button>
+      </article>
+    </div>
+  </section>
   <aside class="contact-wrap" aria-label="联系我们">
     <div class="contact-options">
       <a href="#contact-wechat" aria-label="微信咨询"><strong>微信咨询</strong><span>WeChat</span></a>
@@ -110,17 +143,150 @@
     <button class="contact-main" aria-label="展开联系方式"><i></i> 联系我们</button>
   </aside>
   <script>
+    document.querySelectorAll('[data-filter="3d"], .nav .new').forEach(node => node.remove());
     const cards = [...document.querySelectorAll('.card')];
+    const gallery = document.querySelector('#gallery');
     const empty = document.querySelector('#empty');
+    const stageCardIndexes = new Set([0, 7]);
+    const filterSlots = Array.from({ length: 8 }, (_, index) => `filter-slot-${index + 1}`);
     document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
       document.querySelectorAll('[data-filter]').forEach(item => item.classList.toggle('active', item === button));
       const type = button.dataset.filter;
-      let visible = 0;
-      cards.forEach(card => { const show = type === 'all' || card.dataset.type.includes(type); card.hidden = !show; visible += show; });
-      empty.style.display = visible ? 'none' : 'block';
+      const isFiltered = type !== 'all';
+      let matches = 0;
+      let slot = 0;
+      gallery.classList.toggle('is-filtered', isFiltered);
+      cards.forEach((card, index) => {
+        filterSlots.forEach(className => card.classList.remove(className));
+        const isMatch = card.dataset.type.includes(type);
+        const show = !isFiltered || stageCardIndexes.has(index) || isMatch;
+        card.hidden = !show;
+        if (isMatch) {
+          matches += 1;
+          if (isFiltered && !stageCardIndexes.has(index)) card.classList.add(filterSlots[slot++]);
+        }
+      });
+      empty.style.display = !isFiltered || matches ? 'none' : 'block';
     }));
     const contact = document.querySelector('.contact-wrap');
     document.querySelector('.contact-main').addEventListener('click', () => contact.classList.toggle('open'));
+  </script>
+  <style id="collective-locale-styles">
+    html[lang="zh-CN"] body { font-family:"Microsoft YaHei","Noto Sans SC",Arial,sans-serif; }
+    html[lang="zh-CN"] .meta h2 { letter-spacing:-.2px; }
+    .locale-toggle { color:#c6c2c4; background:#181818; border:1px solid #353535; border-radius:999px; padding:8px 11px; font:500 11px "DM Mono",monospace; letter-spacing:.2px; transition:border-color .2s,color .2s,background .2s; }
+    .locale-toggle:hover,.locale-toggle:focus-visible { color:#fff; border-color:#817a7c; background:#252525; outline:0; }
+    @media (max-width:800px) { .topbar{gap:10px}.top-sign{padding:9px 12px}.locale-toggle{padding:8px 9px;font-size:10px} }
+    /* Two complete character stages framed by the full feature-card library. */
+    .gallery { columns:unset; display:grid; grid-template-columns:minmax(180px,.72fr) minmax(360px,1.4fr) minmax(180px,.72fr); grid-template-areas:"chrome blue future" "signal blue quiet" "cta pink making" "solstice pink office" ". pink wake"; gap:20px 16px; align-items:start; }
+    .gallery > .card,.gallery > .cta-card { width:100%; margin:0; break-inside:auto; }
+    .gallery > .card:nth-child(1) { grid-area:pink; }.gallery > .card:nth-child(2) { grid-area:chrome; }.gallery > .card:nth-child(3) { grid-area:future; }.gallery > .card:nth-child(4) { grid-area:signal; }.gallery > .card:nth-child(5) { grid-area:quiet; }.gallery > .card:nth-child(6) { grid-area:making; }.gallery > .cta-card { grid-area:cta; }.gallery > .card:nth-child(8) { grid-area:blue; }.gallery > .card:nth-child(9) { grid-area:solstice; }.gallery > .card:nth-child(10) { grid-area:office; }.gallery > .card:nth-child(11) { grid-area:wake; }
+    .gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview { height:100%; min-height:520px; aspect-ratio:auto; }
+    .gallery > .card:nth-child(1) .toy { width:44%; height:60%; left:27%; top:20%; }
+    .gallery > .card:nth-child(8) .toy { width:42%; height:56%; left:29%; top:22%; }
+    .gallery > .card:not(:nth-child(1)):not(:nth-child(8)) .preview { aspect-ratio:1.32 / 1; }
+    .gallery > .cta-card { min-height:0; height:100%; }
+    @media (max-width:980px) { .gallery { grid-template-columns:minmax(0,1fr) minmax(0,1fr); grid-template-areas:"blue blue" "chrome future" "signal quiet" "pink pink" "cta making" "solstice office" "wake wake"; gap:18px 14px; }.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview { min-height:440px; }.gallery > .cta-card { min-height:210px; } }
+    @media (max-width:620px) { .gallery { display:grid; grid-template-columns:1fr; grid-template-areas:"blue" "chrome" "future" "signal" "quiet" "pink" "cta" "making" "solstice" "office" "wake"; gap:18px; }.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview { min-height:390px; }.gallery > .card:not(:nth-child(1)):not(:nth-child(8)) .preview { aspect-ratio:1.22 / 1; } }
+    /* Two complete original figures, arranged as a blue upper stage and pink lower stage. */
+    .gallery { columns:unset; position:relative; display:grid; grid-template-columns:minmax(180px,.72fr) minmax(400px,1.52fr) minmax(180px,.72fr); grid-template-areas:"chrome blue future" "signal blue quiet" "solstice pink office" "making pink wake" "cta pink ."; grid-template-rows:repeat(5,minmax(176px,auto)); gap:18px; align-items:stretch; padding:24px; overflow:hidden; border-radius:28px; background:linear-gradient(to bottom,#9bd6f4 0 48%,#f1a4c5 48% 100%); }
+    .gallery:before,.gallery:after { content:""; position:absolute; z-index:0; pointer-events:none; border-radius:50%; opacity:.4; }
+    .gallery:before { width:58%; height:38%; top:-12%; left:21%; background:radial-gradient(ellipse,#effaff,transparent 69%); }.gallery:after { width:62%; height:38%; bottom:-14%; left:19%; background:radial-gradient(ellipse,#ffe5ee,transparent 69%); }
+    .gallery > .card,.gallery > .cta-card { position:relative; z-index:1; width:100%; margin:0; break-inside:auto; }
+    .gallery > .card:nth-child(1){grid-area:pink}.gallery > .card:nth-child(2){grid-area:chrome}.gallery > .card:nth-child(3){grid-area:future}.gallery > .card:nth-child(4){grid-area:signal}.gallery > .card:nth-child(5){grid-area:quiet}.gallery > .card:nth-child(6){grid-area:making}.gallery > .cta-card{grid-area:cta}.gallery > .card:nth-child(8){grid-area:blue}.gallery > .card:nth-child(9){grid-area:solstice}.gallery > .card:nth-child(10){grid-area:office}.gallery > .card:nth-child(11){grid-area:wake}
+    .gallery > .card:nth-child(1),.gallery > .card:nth-child(8){display:flex;flex-direction:column;height:100%}.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview{flex:1;min-height:0;aspect-ratio:auto}
+    .gallery > .card:nth-child(1) .toy{width:47%;height:63%;left:26.5%;top:17%}.gallery > .card:nth-child(8) .toy{width:45%;height:61%;left:27.5%;top:17%}
+    .gallery > .card:not(:nth-child(1)):not(:nth-child(8)) .preview{aspect-ratio:1.42 / 1}.gallery > .cta-card{min-height:0;height:100%}
+    .gallery .meta{color:#fff;text-shadow:0 1px 8px #19395644}.gallery .meta p{color:#ffffffba}
+    @media (max-width:980px){.gallery{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"blue blue" "chrome future" "signal quiet" "pink pink" "solstice office" "making wake" "cta cta";grid-template-rows:auto;gap:16px;padding:18px;background:linear-gradient(to bottom,#9bd6f4 0 49%,#f1a4c5 49% 100%)}.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview{min-height:420px;aspect-ratio:1.25 / 1}.gallery > .cta-card{min-height:210px}}
+    @media (max-width:620px){.gallery{grid-template-columns:1fr;grid-template-areas:"blue" "chrome" "future" "signal" "quiet" "pink" "solstice" "office" "making" "wake" "cta";gap:16px;padding:14px;background:linear-gradient(to bottom,#9bd6f4 0 49%,#f1a4c5 49% 100%)}.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview{min-height:370px;aspect-ratio:1 / 1.12}.gallery > .card:not(:nth-child(1)):not(:nth-child(8)) .preview{aspect-ratio:1.3 / 1}}
+    .card.is-feature-link { cursor:pointer; }.card.is-feature-link:focus-visible { outline:2px solid #fff; outline-offset:5px; border-radius:21px; }.card.is-feature-link .preview:before { content:"进入功能区 ↗"; position:absolute; right:12px; top:12px; z-index:6; padding:7px 9px; border-radius:999px; background:#111b; color:#fff; font:600 10px "DM Mono",monospace; opacity:0; transform:translateY(-5px); transition:opacity .2s,transform .2s; }.card.is-feature-link:hover .preview:before,.card.is-feature-link:focus-visible .preview:before { opacity:1; transform:none; }
+    .feature-zone { margin-top:26px; padding:clamp(24px,4vw,46px); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:26px; align-items:end; border:1px solid #ffffff30; border-radius:26px; background:linear-gradient(135deg,#2b3e67,#916aaf 54%,#d580aa); box-shadow:0 22px 50px #0005; scroll-margin-top:88px; }.feature-zone__eyebrow { margin:0 0 10px; color:#ffffffb5; font:500 11px "DM Mono",monospace; letter-spacing:.12em; text-transform:uppercase; }.feature-zone h2 { margin:0; max-width:680px; font-size:clamp(29px,5vw,57px); line-height:.94; letter-spacing:-.065em; }.feature-zone__copy { max-width:620px; margin:16px 0 0; color:#fffdfde0; font-size:15px; line-height:1.6; }.feature-zone__action { align-self:end; display:inline-flex; align-items:center; min-height:42px; padding:0 16px; border-radius:999px; background:#fff; color:#23202a; font-size:12px; font-weight:800; text-decoration:none; white-space:nowrap; }.feature-zone:focus { outline:2px solid #fff7; outline-offset:5px; } @media (max-width:620px){.feature-zone{grid-template-columns:1fr;gap:18px}.feature-zone__action{justify-self:start}}
+    html { background:#f1a4c5; } body { background:transparent; } .shell { max-width:none; min-height:100vh; padding:0 24px 72px; background:linear-gradient(to bottom,#9bd6f4 0 48%,#f1a4c5 48% 100%); }.topbar { background:linear-gradient(#9bd6f4 74%,transparent); }.gallery { border-radius:0; background:transparent; }.gallery > .card:nth-child(1) .preview,.gallery > .card:nth-child(8) .preview { overflow:visible; border-radius:0; background:transparent; }.gallery > .card:nth-child(1) .preview:after,.gallery > .card:nth-child(8) .preview:after { box-shadow:none; }.gallery > .card:nth-child(1) .toy-bg,.gallery > .card:nth-child(8) .toy-bg { background:transparent !important; overflow:visible; }.gallery > .card:nth-child(1) .meta,.gallery > .card:nth-child(8) .meta { padding-top:16px; }.feature-zone { display:none; }
+    .feature-space { --space-bg:#9bd6f4; position:fixed; inset:0; z-index:80; display:none; overflow:auto; background:var(--space-bg); color:#fff; }.feature-space.is-open { display:grid; grid-template-rows:auto 1fr; animation:space-in .32s ease both; }.feature-space__bar { position:sticky; top:0; z-index:2; display:flex; align-items:center; justify-content:space-between; padding:18px clamp(18px,4vw,56px); background:linear-gradient(var(--space-bg) 74%,transparent); }.feature-space__back,.feature-space__close { border:1px solid #fff8; border-radius:999px; padding:10px 15px; color:#17283c; background:#fff; font-weight:800; }.feature-space__label { margin:0; color:#18364c; font:500 11px "DM Mono",monospace; letter-spacing:.13em; }.feature-space__content { width:min(1220px,100%); margin:auto; padding:clamp(12px,3vw,38px) clamp(18px,5vw,64px) clamp(34px,6vw,72px); display:grid; grid-template-columns:minmax(0,1.35fr) minmax(290px,.65fr); gap:clamp(24px,5vw,72px); align-items:center; }.feature-space__visual { min-height:420px; }.feature-space__visual .preview { height:clamp(420px,66vh,710px); aspect-ratio:auto; border-radius:28px; box-shadow:0 26px 50px #17283c33; }.feature-space__visual .toy { transform:scale(1.05); }.feature-space__detail { padding:28px; border:1px solid #ffffff66; border-radius:24px; background:#ffffff22; backdrop-filter:blur(12px); }.feature-space__kicker { margin:0 0 14px; color:#19344f; font:500 11px "DM Mono",monospace; letter-spacing:.12em; }.feature-space__detail h1 { margin:0; font-size:clamp(34px,5vw,72px); line-height:.9; letter-spacing:-.07em; }.feature-space__detail p:not(.feature-space__kicker) { margin:20px 0 30px; color:#18344eee; font-size:16px; line-height:1.65; }.feature-space__close { background:#18344e; color:#fff; border-color:#18344e; } body.space-open { overflow:hidden; } @keyframes space-in { from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none} } @media (max-width:720px){.shell{padding:0 14px 48px}.feature-space__content{grid-template-columns:1fr;gap:24px}.feature-space__visual{min-height:260px}.feature-space__visual .preview{height:min(54vh,500px)}.feature-space__detail{padding:22px}.feature-space__label{display:none}}
+    /* Keep the blue and pink stages matte: no ambient glow overlays. */
+    .gallery:before,.gallery:after,.gallery > .card:nth-child(1) .toy-floor,.gallery > .card:nth-child(8) .toy-floor { display:none; }
+    /* Remove any legacy 3D navigation markup before the page is displayed. */
+    .nav [data-filter="3d"],.nav .new { display:none !important; }
+    /* Give the primary navigation more presence without changing the brand mark. */
+    .nav { gap:34px; }
+    .nav button { font-size:16px; }
+    @media (max-width:800px){.nav{gap:18px}.nav button{font-size:14px}}
+    /* Keep the Motion Library card completely within the lower pink stage. */
+    .gallery > .cta-card { margin-top:clamp(48px,6vw,96px); }
+    @media (max-width:620px){.gallery > .cta-card{margin-top:32px}}
+    /* Filtered cards fill the left column first, with a clear blue-pink buffer. */
+    .gallery.is-filtered { grid-template-columns:minmax(180px,.72fr) minmax(400px,1.52fr) minmax(180px,.72fr); grid-template-areas:"left-1 blue right-1" "left-2 blue right-2" ". blue ." "left-3 pink right-3" "left-4 pink right-4"; grid-template-rows:repeat(2,minmax(180px,auto)) 72px repeat(2,minmax(180px,auto)); gap:18px; padding:24px; background:linear-gradient(to bottom,#9bd6f4 0 49%,#f1a4c5 51% 100%); }
+    .gallery.is-filtered > .cta-card { display:none; }
+    .gallery.is-filtered > .card.filter-slot-1{grid-area:left-1}.gallery.is-filtered > .card.filter-slot-2{grid-area:left-2}.gallery.is-filtered > .card.filter-slot-3{grid-area:left-3}.gallery.is-filtered > .card.filter-slot-4{grid-area:left-4}.gallery.is-filtered > .card.filter-slot-5{grid-area:right-1}.gallery.is-filtered > .card.filter-slot-6{grid-area:right-2}.gallery.is-filtered > .card.filter-slot-7{grid-area:right-3}.gallery.is-filtered > .card.filter-slot-8{grid-area:right-4}
+    @media (max-width:980px){.gallery.is-filtered{grid-template-columns:minmax(150px,.72fr) minmax(280px,1.52fr) minmax(150px,.72fr);padding:18px;gap:16px}.gallery.is-filtered > .card:nth-child(1) .preview,.gallery.is-filtered > .card:nth-child(8) .preview{min-height:420px;aspect-ratio:auto}}
+    @media (max-width:720px){.gallery.is-filtered{grid-template-columns:1fr;grid-template-areas:"blue" "left-1" "left-2" "right-1" "right-2" "pink" "left-3" "left-4" "right-3" "right-4";grid-template-rows:auto;gap:16px;padding:14px;background:linear-gradient(to bottom,#9bd6f4 0 49%,#f1a4c5 51% 100%)}.gallery.is-filtered > .card:nth-child(1) .preview,.gallery.is-filtered > .card:nth-child(8) .preview{min-height:370px;aspect-ratio:1 / 1.12}}
+    /* Stable stage grid: the central blue and pink characters stay fixed, and cards never occupy the divider row. */
+    .gallery:not(.is-filtered) { grid-template-columns:minmax(180px,.72fr) minmax(400px,1.52fr) minmax(180px,.72fr); grid-template-areas:"chrome blue making" "future blue solstice" ". . ." "signal pink office" "quiet pink wake" "cta pink ."; grid-template-rows:repeat(2,minmax(180px,auto)) 88px repeat(3,minmax(180px,auto)); gap:18px; padding:24px; background:transparent; }
+    .gallery.is-filtered { grid-template-areas:"left-1 blue right-1" "left-2 blue right-2" ". . ." "left-3 pink right-3" "left-4 pink right-4" ". pink ."; grid-template-rows:repeat(2,minmax(180px,auto)) 88px repeat(3,minmax(180px,auto)); background:transparent; }
+    .gallery::before,.gallery::after { content:""; display:block; position:relative; inset:auto; width:auto; height:auto; left:auto; top:auto; bottom:auto; opacity:1; border-radius:0; filter:none; pointer-events:none; z-index:0; }
+    .gallery::before { grid-column:1 / -1; grid-row:1 / 4; background:#9bd6f4; }
+    .gallery::after { grid-column:1 / -1; grid-row:4 / -1; background:#f1a4c5; }
+    .gallery:not(.is-filtered) > .cta-card { margin-top:0; }
+    @media (max-width:980px){.gallery:not(.is-filtered),.gallery.is-filtered{grid-template-columns:minmax(150px,.72fr) minmax(300px,1.52fr) minmax(150px,.72fr);padding:18px;gap:16px}}
+    @media (max-width:720px){.gallery:not(.is-filtered){grid-template-columns:1fr;grid-template-areas:"blue" "chrome" "future" "making" "solstice" "." "pink" "signal" "quiet" "office" "wake" "cta";grid-template-rows:auto auto auto auto auto 56px auto auto auto auto auto auto;padding:14px;gap:16px}.gallery:not(.is-filtered)::before{grid-row:1 / 7}.gallery:not(.is-filtered)::after{grid-row:7 / -1}.gallery.is-filtered{grid-template-columns:1fr;grid-template-areas:"blue" "left-1" "left-2" "right-1" "right-2" "." "pink" "left-3" "left-4" "right-3" "right-4";grid-template-rows:auto auto auto auto auto 56px auto auto auto auto auto;padding:14px;gap:16px}.gallery.is-filtered::before{grid-row:1 / 7}.gallery.is-filtered::after{grid-row:7 / -1}}  </style>
+  <script>
+    (() => {
+      const copy = {
+        en: { nav:['All','Hero','Space','Lab'], explore:'Explore', titles:['Soft Companion','Chrome Memory','Future-State','Signal Archive','Quiet Geometry','Making / Loop','Good Night, Pilot','Solstice Console','Field Office','Wake the Archive'], labels:['3D Collectible','3D Object','Landing Page','Spatial Interface','Editorial Hero','Design System','3D Collectible','Hero Section','Creative Studio','Campaign Page'], cta:['✦ MOTION LIBRARY','Design that keeps moving after the first impression.','Original responsive visual experiments, built without external video assets.','View studies'], contact:['WeChat','Message us','Email ↗','Contact'], empty:'No studies in this category yet.', title:'collective — motion prompt library', filterLabel:'Content filter', galleryLabel:'Motion studies', contactLabel:'Contact', search:'Search', switchLanguage:'Switch language' },
+        zh: { nav:['全部','首屏','空间','实验室'], explore:'探索案例', titles:['柔软伙伴','镀铬记忆','未来进行时','信号档案','静谧几何','制作 / 循环','晚安，飞行员','至日控制台','野外办公室','唤醒档案'], labels:['3D 收藏玩偶','3D 物件','落地页','空间交互界面','编辑感首屏','设计系统','3D 收藏玩偶','首屏区块','创意工作室','活动页面'], cta:['✦ 动态案例库','让设计在第一眼之后，继续流动。','原创响应式视觉实验，不依赖外部视频素材。','查看案例'], contact:['微信咨询','添加微信','邮箱 ↗','联系我们'], empty:'该分类下暂时没有案例。', title:'collective — 动态创意案例库', filterLabel:'内容筛选', galleryLabel:'动态创意案例库', contactLabel:'联系我们', search:'搜索', switchLanguage:'切换至英文' }
+      };
+      const topSign = document.querySelector('.top-sign');
+      const localeToggle = document.createElement('button');
+      localeToggle.className = 'locale-toggle'; localeToggle.type = 'button'; topSign.before(localeToggle);
+      function setLanguage(locale) {
+        const text = copy[locale]; document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'; document.title = text.title;
+        document.querySelectorAll('[data-filter]').forEach((button, index) => { button.textContent = text.nav[index]; });
+        topSign.textContent = text.explore; document.querySelectorAll('.meta h2').forEach((node, index) => node.textContent = text.titles[index]); document.querySelectorAll('.meta p').forEach((node, index) => node.textContent = text.labels[index]);
+        document.querySelectorAll('.cta-card > *').forEach((node, index) => node.textContent = text.cta[index]); document.querySelector('.contact-options a:first-child strong').textContent = text.contact[0]; document.querySelector('.contact-options a:first-child span').textContent = text.contact[1]; document.querySelector('.contact-options a:last-child span').textContent = text.contact[2]; document.querySelector('.contact-main').lastChild.textContent = ' ' + text.contact[3];
+        document.querySelector('.contact-wrap').setAttribute('aria-label', text.contactLabel); document.querySelector('.contact-main').setAttribute('aria-label', text.contactLabel); document.querySelector('.nav').setAttribute('aria-label', text.filterLabel); document.querySelector('.gallery').setAttribute('aria-label', text.galleryLabel); document.querySelector('.search').setAttribute('aria-label', text.search);
+        localeToggle.textContent = locale === 'zh' ? 'EN' : '中文'; localeToggle.setAttribute('aria-label', text.switchLanguage); localeToggle.setAttribute('aria-pressed', String(locale === 'zh')); document.querySelector('#empty').textContent = text.empty; localStorage.setItem('collective-locale', locale); document.dispatchEvent(new CustomEvent('collective:locale'));
+      }
+      setLanguage(localStorage.getItem('collective-locale') === 'zh' ? 'zh' : 'en'); localeToggle.addEventListener('click', () => setLanguage(document.documentElement.lang === 'zh-CN' ? 'en' : 'zh'));
+    })();
+  </script>
+  <script>
+    (() => {
+      const featureCards = [...document.querySelectorAll('.gallery .card')];
+      const space = document.querySelector('#feature-space');
+      const visual = document.querySelector('#feature-space-visual');
+      const kicker = document.querySelector('#feature-space-kicker');
+      const title = document.querySelector('#feature-space-title');
+      const copy = document.querySelector('#feature-space-copy');
+      const backButtons = [...space.querySelectorAll('.feature-space__back,.feature-space__close')];
+      const tones = ['#eea1c2','#a3f0dc','#cc83a8','#7395c9','#c9abd5','#d8c2af','#9bd6f4','#d889ab','#8ccbc5','#8c87d9'];
+      const details = [
+        {id:'soft-companion',zh:['柔软伙伴','3D 收藏玩偶','查看粉色角色的造型、材质与循环动作展示。'],en:['Soft Companion','3D Collectible','Explore the pink character’s form, material study, and looping motion.']},
+        {id:'chrome-memory',zh:['镀铬记忆','3D 物件','进入动态材质与光影对象实验。'],en:['Chrome Memory','3D Object','Enter the animated material and lighting object study.']},
+        {id:'future-state',zh:['未来进行时','落地页首屏','进入高对比首屏视觉与动态构图区。'],en:['Future-State','Landing Page','Enter the high-contrast hero visual and kinetic composition.']},
+        {id:'signal-archive',zh:['信号档案','空间交互界面','进入空间信号、扫描层与数据卡片展示区。'],en:['Signal Archive','Spatial Interface','Enter the spatial signals, scan layers, and data-card study.']},
+        {id:'quiet-geometry',zh:['静谧几何','编辑感首屏','进入留白、网格与静态空间构成区。'],en:['Quiet Geometry','Editorial Hero','Enter the white-space, grid, and editorial composition study.']},
+        {id:'making-loop',zh:['制作 / 循环','设计系统','进入线框、标注与循环设计系统区。'],en:['Making / Loop','Design System','Enter the wireframe, annotation, and looping design-system study.']},
+        {id:'good-night-pilot',zh:['晚安，飞行员','3D 收藏玩偶','查看蓝色角色的完整展示与循环动作。'],en:['Good Night, Pilot','3D Collectible','Explore the complete blue character and its looping motion.']},
+        {id:'solstice-console',zh:['至日控制台','首屏区块','进入沉浸式控制台与空间首屏区。'],en:['Solstice Console','Hero Section','Enter the immersive console and spatial hero section.']},
+        {id:'field-office',zh:['野外办公室','创意工作室','进入工作室环境、灯光与植物动效区。'],en:['Field Office','Creative Studio','Enter the studio environment, lighting, and plant-motion study.']},
+        {id:'wake-the-archive',zh:['唤醒档案','活动页面','进入活动视觉、动态圆环与档案唤醒区。'],en:['Wake the Archive','Campaign Page','Enter the campaign visual, animated ring, and archive wake-up study.']}
+      ];
+      let activeIndex = null;
+      const isChinese = () => document.documentElement.lang === 'zh-CN';
+      function openSpace(index, push = true) {
+        const detail = details[index]; const card = featureCards[index]; if (!detail || !card) return;
+        activeIndex = index; const text = detail[isChinese() ? 'zh' : 'en']; const backLabel = isChinese() ? '← 返回案例库' : '← Back to library';
+        space.style.setProperty('--space-bg', tones[index]); visual.replaceChildren(card.querySelector('.preview').cloneNode(true)); kicker.textContent = `FEATURE SPACE / ${text[1]}`; title.textContent = text[0]; copy.textContent = text[2]; backButtons.forEach(button => button.textContent = button.classList.contains('feature-space__back') ? backLabel : backLabel.slice(2));
+        space.classList.add('is-open'); space.setAttribute('aria-hidden','false'); document.body.classList.add('space-open');
+        if (push) history.pushState(null,'',`#space-${detail.id}`); backButtons[0].focus();
+      }
+      function closeSpace(push = true) { if (activeIndex === null) return; const previous = activeIndex; activeIndex = null; space.classList.remove('is-open'); space.setAttribute('aria-hidden','true'); document.body.classList.remove('space-open'); if (push) history.pushState(null,'','#gallery'); featureCards[previous].focus(); }
+      function syncLocation() { const index = details.findIndex(item => location.hash === `#space-${item.id}`); if (index >= 0) openSpace(index,false); else closeSpace(false); }
+      featureCards.forEach((card,index) => { card.classList.add('is-feature-link'); card.tabIndex=0; card.setAttribute('role','link'); card.setAttribute('aria-controls','feature-space'); card.addEventListener('click',() => openSpace(index)); card.addEventListener('keydown',event => { if(event.key==='Enter'||event.key===' '){event.preventDefault();openSpace(index)} }); });
+      backButtons.forEach(button => button.addEventListener('click',() => closeSpace()));
+      document.addEventListener('keydown',event => { if(event.key==='Escape') closeSpace(); }); document.addEventListener('collective:locale',() => { if(activeIndex !== null) openSpace(activeIndex,false); }); window.addEventListener('popstate',syncLocation); window.addEventListener('hashchange',syncLocation); syncLocation();
+    })();
   </script>
 </body>
 </html>
