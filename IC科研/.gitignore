@@ -1,0 +1,9 @@
+# Local dependencies and build outputs
+node_modules/
+.next/
+.npm-cache/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
